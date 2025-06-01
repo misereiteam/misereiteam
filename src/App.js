@@ -71,9 +71,9 @@ const loadGsap = (callback) => {
 };
 
 const gqColors = { gold: '#FBBF24', red: '#DC2626', redDark: '#B91C1C' };
-const gquuuuuuxTheme = { bgBase: 'bg-slate-900', bgNavbar: 'bg-black/80 backdrop-blur-md', bgCard: 'bg-slate-800/70 border border-gq-red-dark', bgArticleCard: 'bg-slate-800 border border-gq-gold border-opacity-30', bgSidebar: 'bg-slate-800/50', textPrimary: 'text-slate-100', textSecondary: 'text-slate-400', textAccent: 'text-gq-gold', accentGold: 'gq-gold', accentRed: 'gq-red', borderColor: 'border-gq-gold border-opacity-50', buttonPrimaryBg: 'bg-gq-red hover:bg-gq-red-dark', buttonPrimaryText: 'text-white', buttonSecondaryBg: 'bg-gq-gold hover:bg-yellow-400', buttonSecondaryText: 'text-slate-900 font-semibold', inputBg: 'bg-slate-700/50', inputBorder: 'border-slate-600', focusRing: 'focus:ring-[#FBBF24]' };
+const gquuuuuuxTheme = { bgBase: 'bg-slate-900', bgNavbar: 'bg-black/80 backdrop-blur-md', bgCard: 'bg-slate-800/70 border border-gq-red-dark', bgArticleCard: 'bg-slate-800 border border-gq-gold border-opacity-30', bgSidebar: 'bg-slate-800/95', textPrimary: 'text-slate-100', textSecondary: 'text-slate-400', textAccent: 'text-gq-gold', accentGold: 'gq-gold', accentRed: 'gq-red', borderColor: 'border-gq-gold border-opacity-50', buttonPrimaryBg: 'bg-gq-red hover:bg-gq-red-dark', buttonPrimaryText: 'text-white', buttonSecondaryBg: 'bg-gq-gold hover:bg-yellow-400', buttonSecondaryText: 'text-slate-900 font-semibold', inputBg: 'bg-slate-700/50', inputBorder: 'border-slate-600', focusRing: 'focus:ring-[#FBBF24]' };
 const defaultThemeColors = { sky500: '#0ea5e9', sky600: '#0284c7', red500: '#ef4444', slate200: '#e2e8f0', slate300: '#cbd5e1', slate400: '#94a3b8', slate600: '#475569', slate700: '#334155', slate800: '#1e2937', gray100: '#f3f4f6', sky400: '#38bdf8' };
-const defaultTheme = { bgBase: 'bg-gray-100', bgNavbar: 'bg-sky-600', bgCard: 'bg-white', bgArticleCard: 'bg-white border border-slate-200', bgSidebar: 'bg-slate-100', textPrimary: 'text-slate-800', textSecondary: 'text-slate-600', textAccent: 'text-sky-500', accentGold: 'text-sky-500', accentRed: 'text-red-500', borderColor: 'border-sky-500/50', buttonPrimaryBg: 'bg-sky-600 hover:bg-sky-500', buttonPrimaryText: 'text-white', buttonSecondaryBg: 'bg-slate-200 hover:bg-slate-300', buttonSecondaryText: 'text-sky-600', inputBg: 'bg-white', inputBorder: 'border-slate-300', focusRing: 'focus:ring-sky-500' };
+const defaultTheme = { bgBase: 'bg-gray-100', bgNavbar: 'bg-sky-600', bgCard: 'bg-white', bgArticleCard: 'bg-white border border-slate-200', bgSidebar: 'bg-slate-100/95', textPrimary: 'text-slate-800', textSecondary: 'text-slate-600', textAccent: 'text-sky-500', accentGold: 'text-sky-500', accentRed: 'text-red-500', borderColor: 'border-sky-500/50', buttonPrimaryBg: 'bg-sky-600 hover:bg-sky-500', buttonPrimaryText: 'text-white', buttonSecondaryBg: 'bg-slate-200 hover:bg-slate-300', buttonSecondaryText: 'text-sky-600', inputBg: 'bg-white', inputBorder: 'border-slate-300', focusRing: 'focus:ring-sky-500' };
 
 const Navbar = ({ setCurrentPage, currentPage, toggleDarkMode, isDarkMode, isMobileMenuOpen, toggleMobileMenu, gsap, theme, navigateToSeriesList }) => {
   const navRef = useRef(null); const logoRef = useRef(null); const navItemsRef = useRef([]);
@@ -87,16 +87,7 @@ const Navbar = ({ setCurrentPage, currentPage, toggleDarkMode, isDarkMode, isMob
         .from(navItemsRef.current, { opacity: 0, y: -20, stagger: 0.1, duration: 0.4 }, "-=0.2");
     }
   }, [gsap]);
-  const navItemsData = [
-    { name: 'ホーム', icon: <Home size={18} />, page: 'home' },
-    { name: 'サプライ', icon: <ShoppingCart size={18} />, page: 'supplies' },
-    { name: '記事アーカイブ', icon: <Newspaper size={18} />, page: 'articles', externalLink: NOTE_URL },
-    { name: 'カードリスト', icon: <Database size={18} />, page: 'cardlist' },
-    { name: '作品一覧', icon: <Library size={18} />, page: 'serieslist' },
-    { name: '用語集', icon: <HelpCircle size={18} />, page: 'glossary' },
-    { name: 'ルール解説', icon: <ScrollText size={18} />, page: 'rules' },
-    // 「公式情報」「動画」を削除
-  ];
+  const navItemsData = [ { name: 'ホーム', icon: <Home size={18} />, page: 'home' }, { name: 'サプライ', icon: <ShoppingCart size={18} />, page: 'supplies' }, { name: '記事アーカイブ', icon: <Newspaper size={18} />, page: 'articles', externalLink: NOTE_URL }, { name: 'カードリスト', icon: <Database size={18} />, page: 'cardlist' }, { name: '作品一覧', icon: <Library size={18} />, page: 'serieslist' }, { name: '用語集', icon: <HelpCircle size={18} />, page: 'glossary' }, { name: 'ルール解説', icon: <ScrollText size={18} />, page: 'rules' }];
   return (
     <nav ref={navRef} className={`p-4 shadow-xl sticky top-0 z-50 ${isDarkMode ? theme.bgNavbar : defaultTheme.bgNavbar} ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}>
       <div className="container mx-auto flex justify-between items-center">
@@ -192,7 +183,7 @@ const HomePage = ({ setCurrentPage, isDarkMode, gsap, theme, topPageData, isTopP
             e.target.src = defaultHeroImage;
           }}
         />
-        <div className="absolute inset-0 flex flex-col justify-end items-center text-center p-4 sm:p-8"> {/* グラデーション削除 */}
+        <div className="absolute inset-0 flex flex-col justify-end items-center text-center p-4 sm:p-8">
           <div ref={heroButtonsRef} style={{opacity:0 }} className="flex flex-wrap justify-center gap-3 sm:gap-4 pb-8 md:pb-12">
             {xLink && (
               <Button onClick={() => window.open(xLink, '_blank')} isDarkMode={isDarkMode} theme={theme} variant="secondary" icon={<MessageSquare />}>
@@ -219,13 +210,13 @@ const HomePage = ({ setCurrentPage, isDarkMode, gsap, theme, topPageData, isTopP
           <Card isDarkMode={isDarkMode} gsap={gsap} theme={theme} className={`hover:border-${isDarkMode ? 'gq-gold' : 'sky-500'}`}>
             <ShoppingCart size={48} className={`mb-4 ${isDarkMode ? theme.accentRed : defaultTheme.accentRed}`} />
             <h4 className={`text-2xl font-semibold mb-2 uppercase ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}>最新サプライ</h4>
-            <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mb-4`}>デッキを彩るサプライをチェック。</p> {/* 修正 */}
+            <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mb-4`}>デッキを彩るサプライをチェック。</p>
             <Button onClick={() => setCurrentPage('supplies')} isDarkMode={isDarkMode} theme={theme}>サプライを見る</Button>
           </Card>
           <Card isDarkMode={isDarkMode} gsap={gsap} theme={theme} className={`hover:border-${isDarkMode ? 'gq-gold' : 'sky-500'}`}>
             <Database size={48} className={`mb-4 ${isDarkMode ? theme.accentRed : defaultTheme.accentRed}`} />
             <h4 className={`text-2xl font-semibold mb-2 uppercase ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}>カードリスト</h4>
-            <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mb-4`}>出展タイトルやカードの種類ごとに検索可能。詳細検索はこちら。</p> {/* 修正 */}
+            <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mb-4`}>出展タイトルやカードの種類ごとに検索可能。詳細検索はこちら。</p>
             <Button onClick={() => setCurrentPage('cardlist')} isDarkMode={isDarkMode} theme={theme}>カードリストへ</Button>
           </Card>
            <Card isDarkMode={isDarkMode} gsap={gsap} theme={theme} className={`hover:border-${isDarkMode ? 'gq-gold' : 'sky-500'}`}>
@@ -249,7 +240,7 @@ const HomePage = ({ setCurrentPage, isDarkMode, gsap, theme, topPageData, isTopP
           <Card isDarkMode={isDarkMode} gsap={gsap} theme={theme} className={`hover:border-${isDarkMode ? 'gq-gold' : 'sky-500'}`}>
             <BookOpen size={48} className={`mb-4 ${isDarkMode ? theme.accentRed : defaultTheme.accentRed}`} />
             <h4 className={`text-2xl font-semibold mb-2 uppercase ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}>作品一覧</h4>
-            <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mb-4`}>ガンダムシリーズの壮大な物語を辿る。</p> {/* 修正 */}
+            <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mb-4`}>ガンダムシリーズの壮大な物語を辿る。</p>
             <Button onClick={() => setCurrentPage('serieslist')} isDarkMode={isDarkMode} theme={theme}>作品一覧を見る</Button>
           </Card>
         </div>
@@ -310,20 +301,47 @@ const SuppliesPage = ({ isDarkMode, gsap, theme, setCurrentPage }) => {
     } return () => { if (gsap && gsap.plugins && gsap.plugins.ScrollTrigger) { productCardRefs.current.forEach(el => { if (!el) return; const st = gsap.plugins.ScrollTrigger.getTweensOf(el); if (st) st.forEach(tween => tween.scrollTrigger && tween.scrollTrigger.kill()); }); }};
   }, [gsap, filteredSupplies]);
   const sidebarRef = useRef(null); useEffect(() => { if (gsap && sidebarRef.current) gsap.from(sidebarRef.current, {opacity:0, x:-100, duration:0.8, ease: 'power3.out', delay:0.3}); }, [gsap]);
+
+  // スマホでフィルターが開いている間、背景のスクロールを禁止
+  useEffect(() => {
+    if (isMobileFilterOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { // クリーンアップ関数
+      document.body.style.overflow = '';
+    };
+  }, [isMobileFilterOpen]);
+
+
   if (isLoading) return <div className={`flex flex-col justify-center items-center h-[calc(100vh-200px)] ${isDarkMode ? theme.bgBase : defaultTheme.bgBase} ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}><Loader2 size={48} className={`animate-spin ${isDarkMode ? theme.accentGold : defaultTheme.accentGold} mb-4`} /><p className="text-lg">サプライデータをロード中...</p></div>;
   if (fetchError) return <div className={`flex flex-col justify-center items-center h-[calc(100vh-200px)] ${isDarkMode ? theme.bgBase : defaultTheme.bgBase} ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary} text-center px-4`}><AlertTriangle size={48} className={`${isDarkMode ? theme.accentRed : defaultTheme.accentRed} mb-4`} /><p className="text-lg font-semibold">データ取得エラー</p><p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mb-2`}>サプライデータの読み込みに失敗しました。</p><p className={`text-sm ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>エラー詳細: {fetchError}</p></div>;
   return (
     <div>
       <PageTitle title="サプライ" subtitle="戦場を彩る至高の装備 - 全ての戦士へ" icon={<ShoppingCart />} isDarkMode={isDarkMode} gsap={gsap} theme={theme}/>
       <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-        <aside ref={sidebarRef} className={`md:w-1/4 lg:w-1/5 ${isMobileFilterOpen ? 'block fixed inset-0 bg-opacity-100 z-40 overflow-y-auto p-6' : 'hidden'} md:sticky md:top-24 md:max-h-[calc(100vh-7rem)] md:overflow-y-auto md:block rounded-lg shadow-lg ${isDarkMode ? theme.bgSidebar : defaultTheme.bgSidebar} ${isDarkMode ? 'p-4' : 'p-6'}`}>
-          <div className="flex justify-between items-center md:hidden mb-4"><h3 className={`text-xl font-semibold uppercase ${isDarkMode ? theme.textAccent : defaultTheme.textAccent}`}>フィルター</h3><Button onClick={() => setIsMobileFilterOpen(false)} isDarkMode={isDarkMode} theme={theme} variant="danger" className="p-2 h-auto"><IconX size={20}/></Button></div>
+        <aside ref={sidebarRef} className={`md:w-1/4 lg:w-1/5 ${isMobileFilterOpen ? `block fixed inset-0 z-[60] overflow-y-auto p-6 ${isDarkMode ? theme.bgSidebar : defaultTheme.bgSidebar}` : 'hidden'} md:sticky md:top-24 md:max-h-[calc(100vh-7rem)] md:overflow-y-auto md:block rounded-lg shadow-lg ${isDarkMode ? theme.bgSidebar : defaultTheme.bgSidebar} ${isDarkMode ? 'p-4' : 'p-6'}`}>
+          <div className={`flex justify-between items-center md:hidden mb-4 sticky top-0 py-2 z-10 ${isDarkMode ? theme.bgSidebar : defaultTheme.bgSidebar}`}>
+            <h3 className={`text-xl font-semibold uppercase ${isDarkMode ? theme.textAccent : defaultTheme.textAccent}`}>フィルター</h3><Button onClick={() => setIsMobileFilterOpen(false)} isDarkMode={isDarkMode} theme={theme} variant="danger" className="p-2 h-auto"><IconX size={20}/></Button>
+          </div>
           <div className="mb-4"><label htmlFor="search-supply" className={`block text-sm font-medium mb-1 ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>キーワード検索</label><div className="relative"><input type="text" id="search-supply" placeholder="商品名、説明文..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className={`w-full p-2 pr-8 rounded-md border ${isDarkMode ? `${theme.inputBg} ${theme.inputBorder} ${theme.textPrimary}` : `${defaultTheme.inputBg} ${defaultTheme.inputBorder} ${defaultTheme.textPrimary}`} ${isDarkMode ? theme.focusRing : defaultTheme.focusRing} focus:border-transparent`} /><Search size={18} className={`absolute right-2 top-1/2 -translate-y-1/2 ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`} /></div></div>
           <FilterSection title="カテゴリ" items={categories} selectedItems={selectedCategories} onToggleItem={(cat) => setSelectedCategories(p => p.includes(cat) ? p.filter(c => c !== cat) : [...p, cat])} icon={<Layers />}/>
           <FilterSection title="ブランド" items={brands} selectedItems={selectedBrands} onToggleItem={(brand) => setSelectedBrands(p => p.includes(brand) ? p.filter(b => b !== brand) : [...p, brand])} icon={<ShieldCheck/>}/>
         </aside>
         <main className="w-full md:w-3/4 lg:w-4/5">
-          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4"><p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>{filteredSupplies.length} 件の商品が見つかりました</p><div className="flex items-center gap-4"><button onClick={() => setIsMobileFilterOpen(true)} className={`md:hidden p-2 rounded-md flex items-center gap-1 ${isDarkMode ? `${theme.buttonSecondaryBg} ${theme.buttonSecondaryText}` : `${defaultTheme.buttonSecondaryBg} ${defaultTheme.buttonSecondaryText}`} `}><Filter size={18}/>フィルター</button><select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className={`p-2 rounded-md border ${isDarkMode ? `${theme.inputBg} ${theme.inputBorder} ${theme.textPrimary}` : `${defaultTheme.inputBg} ${defaultTheme.inputBorder} ${defaultTheme.textPrimary}`} ${isDarkMode ? theme.focusRing : defaultTheme.focusRing} focus:border-transparent`}><option value="releaseDateDesc">新着順</option><option value="priceAsc">価格が安い順</option><option value="priceDesc">価格が高い順</option><option value="nameAsc">商品名順</option></select></div></div>
+          <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+            <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>{filteredSupplies.length} 件の商品が見つかりました</p>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setIsMobileFilterOpen(true)}
+                className={`md:hidden p-2 rounded-md flex items-center gap-1 ${isDarkMode ? `${theme.buttonSecondaryBg} ${theme.buttonSecondaryText}` : `${defaultTheme.buttonSecondaryBg} ${defaultTheme.buttonSecondaryText}`}`}
+              >
+                <Filter size={18}/>フィルター
+              </button>
+              <select value={sortBy} onChange={(e) => setSortBy(e.target.value)} className={`p-2 rounded-md border ${isDarkMode ? `${theme.inputBg} ${theme.inputBorder} ${theme.textPrimary}` : `${defaultTheme.inputBg} ${defaultTheme.inputBorder} ${defaultTheme.textPrimary}`} ${isDarkMode ? theme.focusRing : defaultTheme.focusRing} focus:border-transparent`}><option value="releaseDateDesc">新着順</option><option value="priceAsc">価格が安い順</option><option value="priceDesc">価格が高い順</option><option value="nameAsc">商品名順</option></select>
+            </div>
+          </div>
           {filteredSupplies.length > 0 ? (<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">{filteredSupplies.map(item => (<div key={item.id} ref={addToProductCardRefs}><Card isDarkMode={isDarkMode} gsap={null} theme={theme} className={`flex flex-col justify-between h-full hover:border-${isDarkMode ? 'gq-gold' : 'sky-500'}`}><div><div className="relative mb-3 aspect-[4/3] bg-slate-700/30 rounded-md overflow-hidden"><img src={item.imageUrl || placeholderImageBase(300, 225, item.imageText)} alt={item.name} className={`w-full h-full object-contain rounded-md shadow-lg border ${isDarkMode ? `border-gq-gold/20` : `border-slate-300/50` }`} onError={(e) => { e.target.onerror = null; e.target.src = placeholderImageBase(300, 225, '画像読込エラー'); }}/></div><h3 className={`text-lg font-semibold mb-1 uppercase ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary} min-h-[2.5em] line-clamp-2`}>{item.name}</h3><p className={`text-md font-bold mb-1 ${isDarkMode ? `text-gq-red` : `text-red-500`}`}>{item.price > 0 ? item.price.toLocaleString() + "円 (税込)" : "価格未定"}</p><p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} text-xs mb-2`}>発売日: {item.releaseDate}</p><p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} text-xs mb-3 line-clamp-2 min-h-[2.2em]`}>{item.description}</p></div><Button onClick={() => window.open(item.affiliateLink, '_blank')} isDarkMode={isDarkMode} theme={theme} className="w-full mt-auto" variant="secondary" disabled={!item.affiliateLink || item.affiliateLink === '#'}>購入サイトへ</Button></Card></div>))}</div>) : (<div className={`text-center py-10 ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}><ImageIcon size={48} className="mx-auto mb-4 opacity-50"/><p className="text-xl">該当する商品が見つかりませんでした。</p><p>検索条件を変更してお試しください。</p></div>)}
         </main>
       </div>
@@ -406,7 +424,7 @@ const SeriesListPage = ({ isDarkMode, gsap, theme, setCurrentPage, setSelectedSe
   if (!sortedSeriesData || sortedSeriesData.length === 0) return <div className={`flex flex-col justify-center items-center h-[calc(100vh-200px)] ${isDarkMode ? theme.bgBase : defaultTheme.bgBase} ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}><HelpCircle size={48} className={`${isDarkMode ? theme.accentGold : defaultTheme.accentGold} mb-4`} /><p className="text-lg">表示する作品がありません。</p></div>;
   return (
     <div>
-      <PageTitle title="作品一覧" subtitle="ガンダムサーガの各時代を辿る" icon={<Library />} isDarkMode={isDarkMode} gsap={gsap} theme={theme} />
+      <PageTitle title="作品一覧" subtitle="ガンダムシリーズの壮大な物語を辿る。" icon={<Library />} isDarkMode={isDarkMode} gsap={gsap} theme={theme} />
       <div className="relative md:py-8">
         <div className={`hidden md:block absolute left-1/2 top-0 bottom-0 w-1 ${isDarkMode ? 'bg-gq-gold opacity-30' : `bg-sky-500 opacity-30`} transform -translate-x-1/2`}></div>
         {sortedSeriesData.map((series, index) => (
@@ -497,8 +515,8 @@ const CardListPage = ({ isDarkMode, gsap, theme, setCurrentPage }) => {
       cardItemRefs.current.forEach((el, index) => {
         if (!el) return;
         gsap.killTweensOf(el);
-        if (gsap.plugins.ScrollTrigger) { // ScrollTriggerが利用可能か確認 (gsapInstanceから取得)
-            const existingTrigger = gsap.plugins.ScrollTrigger.getById(`card-${el.dataset.id || index}`);
+        if (gsap.ScrollTrigger) {
+            const existingTrigger = gsap.ScrollTrigger.getById(`card-${el.dataset.id || index}`);
             if(existingTrigger) existingTrigger.kill();
         }
 
@@ -526,15 +544,31 @@ const CardListPage = ({ isDarkMode, gsap, theme, setCurrentPage }) => {
   }, [gsap, filteredCards, viewMode]);
 
   const sidebarRef = useRef(null); useEffect(() => { if (gsap && sidebarRef.current) gsap.from(sidebarRef.current, {opacity:0, x:-100, duration:0.8, ease: 'power3.out', delay:0.3}); }, [gsap]);
+
+  // スマホでフィルターが開いている間、背景のスクロールを禁止
+  useEffect(() => {
+    if (isMobileFilterOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { // クリーンアップ関数
+      document.body.style.overflow = '';
+    };
+  }, [isMobileFilterOpen]);
+
   if (isLoading) return <div className={`flex flex-col justify-center items-center h-[calc(100vh-200px)] ${isDarkMode ? theme.bgBase : defaultTheme.bgBase} ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}><Loader2 size={48} className={`animate-spin ${isDarkMode ? theme.accentGold : defaultTheme.accentGold} mb-4`} /><p className="text-lg">カードデータをロード中...</p></div>;
   if (fetchError) return <div className={`flex flex-col justify-center items-center h-[calc(100vh-200px)] ${isDarkMode ? theme.bgBase : defaultTheme.bgBase} ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary} text-center px-4`}><AlertTriangle size={48} className={`${isDarkMode ? theme.accentRed : defaultTheme.accentRed} mb-4`} /><p className="text-lg font-semibold">データ取得エラー</p><p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mb-2`}>カードデータの読み込みに失敗しました。</p><p className={`text-sm ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>エラー詳細: {fetchError}</p>{(CARDLIST_SPREADSHEET_URL.includes('YOUR_SPREADSHEET_ID_PLACEHOLDER')) && (<p className={`mt-4 p-3 rounded-md ${isDarkMode ? 'bg-yellow-900/50 border border-yellow-700' : 'bg-yellow-100 border border-yellow-300'} text-sm ${isDarkMode ? 'text-yellow-300' : 'text-yellow-700'}`}>コード内の `CARDLIST_SPREADSHEET_URL` を、Googleスプレッドシートを「ウェブに公開」して取得した実際のURL（gid指定を含む）に置き換えてください。</p>)}</div>;
   return (
     <div>
       <PageTitle title="カードデータベース" subtitle="全カードを網羅！詳細検索可能" icon={<Database />} isDarkMode={isDarkMode} gsap={gsap} theme={theme}/>
       <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-        <aside ref={sidebarRef} className={`md:w-1/4 lg:w-1/5 ${isMobileFilterOpen ? 'block fixed inset-0 bg-opacity-90 z-40 overflow-y-auto p-6' : 'hidden'} md:sticky md:top-24 md:max-h-[calc(100vh-7rem)] md:overflow-y-auto md:block rounded-lg shadow-lg ${isDarkMode ? theme.bgSidebar : defaultTheme.bgSidebar} ${isDarkMode ? 'p-4' : 'p-6'}`}>
-          <div className="flex justify-between items-center md:hidden mb-4"><h3 className={`text-xl font-semibold uppercase ${isDarkMode ? theme.textAccent : defaultTheme.textAccent}`}>フィルター</h3><Button onClick={() => setIsMobileFilterOpen(false)} isDarkMode={isDarkMode} theme={theme} variant="danger" className="p-2 h-auto"><IconX size={20}/></Button></div>
-          <div className="mb-4"><label htmlFor="search-card" className={`block text-sm font-medium mb-1 ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>キーワード/カード番号</label><div className="relative"><input type="text" id="search-card" placeholder="カード名、効果、シリーズ..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className={`w-full p-2 pr-8 rounded-md border ${isDarkMode ? `${theme.inputBg} ${theme.inputBorder} ${theme.textPrimary}` : `${defaultTheme.inputBg} ${defaultTheme.inputBorder} ${defaultTheme.textPrimary}`} ${isDarkMode ? theme.focusRing : defaultTheme.focusRing} focus:border-transparent`} /><Search size={18} className={`absolute right-2 top-1/2 -translate-y-1/2 ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`} /></div></div>
+        <aside ref={sidebarRef} className={`md:w-1/4 lg:w-1/5 ${isMobileFilterOpen ? `block fixed inset-0 z-[60] overflow-y-auto p-6 ${isDarkMode ? theme.bgSidebar : defaultTheme.bgSidebar}` : 'hidden'} md:sticky md:top-24 md:max-h-[calc(100vh-7rem)] md:overflow-y-auto md:block rounded-lg shadow-lg ${isDarkMode ? theme.bgSidebar : defaultTheme.bgSidebar} ${isDarkMode ? 'p-4' : 'p-6'}`}>
+          <div className={`flex justify-between items-center md:hidden mb-4 sticky top-0 py-2 z-10 ${isDarkMode ? theme.bgSidebar : defaultTheme.bgSidebar}`}> {/* 背景色を適用 */}
+            <h3 className={`text-xl font-semibold uppercase ${isDarkMode ? theme.textAccent : defaultTheme.textAccent}`}>フィルター</h3>
+            <Button onClick={() => setIsMobileFilterOpen(false)} isDarkMode={isDarkMode} theme={theme} variant="danger" className="p-2 h-auto"><IconX size={20}/></Button>
+          </div>
+          <div className="mb-4"><label htmlFor="search-card" className={`block text-sm font-medium mb-1 ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>キーワード</label><div className="relative"><input type="text" id="search-card" placeholder="カード名、効果、シリーズ..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className={`w-full p-2 pr-8 rounded-md border ${isDarkMode ? `${theme.inputBg} ${theme.inputBorder} ${theme.textPrimary}` : `${defaultTheme.inputBg} ${defaultTheme.inputBorder} ${defaultTheme.textPrimary}`} ${isDarkMode ? theme.focusRing : defaultTheme.focusRing} focus:border-transparent`} /><Search size={18} className={`absolute right-2 top-1/2 -translate-y-1/2 ${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`} /></div></div>
           <FilterSection title="出典タイトル" items={allSeries} selectedItems={selectedSeries} onToggleItem={(item) => setSelectedSeries(p => p.includes(item) ? p.filter(x => x !== item) : [...p, item])} icon={<BookOpen />} />
           <FilterSection title="種類" items={allTypes} selectedItems={selectedTypes} onToggleItem={(item) => setSelectedTypes(p => p.includes(item) ? p.filter(x => x !== item) : [...p, item])} icon={<Layers />} />
           <FilterSection title="色" items={allColors} selectedItems={selectedColors} onToggleItem={(item) => setSelectedColors(p => p.includes(item) ? p.filter(x => x !== item) : [...p, item])} icon={<Palette />} />
@@ -584,7 +618,6 @@ const CardListPage = ({ isDarkMode, gsap, theme, setCurrentPage }) => {
 
 const GlossaryPage = ({ isDarkMode, gsap, theme, setCurrentPage }) => ( <div> <PageTitle title="用語集" subtitle="ガンダムカードゲームの専門用語を解説" icon={<HelpCircle />} isDarkMode={isDarkMode} gsap={gsap} theme={theme}/> <div className={`flex flex-col items-center justify-center text-center p-8 rounded-lg shadow-xl ${isDarkMode ? theme.bgCard : defaultTheme.bgCard} ${isDarkMode ? `border ${theme.borderColor}` : 'border border-slate-200'}`}> <Construction size={64} className={`mb-6 ${isDarkMode ? theme.accentGold : defaultTheme.accentGold}`} /> <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}>用語集ページは現在整備中です</h3> <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>より詳細な情報を提供できるよう準備を進めております。今しばらくお待ちください。</p> <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mt-2`}>お急ぎの場合は、<a href="https://www.gundam-gcg.com/jp/welcome/playguide.php" target="_blank" rel="noopener noreferrer" className={`underline ${isDarkMode ? theme.textAccent : defaultTheme.textAccent} hover:text-opacity-80`}>公式サイトのプレイガイド</a>をご確認ください。</p> </div> </div> );
 const RuleExplanationPage = ({ isDarkMode, gsap, theme, setCurrentPage }) => ( <div> <PageTitle title="ルール解説" subtitle="詳細なルールとQ&A" icon={<ScrollText />} isDarkMode={isDarkMode} gsap={gsap} theme={theme}/> <div className={`flex flex-col items-center justify-center text-center p-8 rounded-lg shadow-xl ${isDarkMode ? theme.bgCard : defaultTheme.bgCard} ${isDarkMode ? `border ${theme.borderColor}` : 'border border-slate-200'}`}> <Construction size={64} className={`mb-6 ${isDarkMode ? theme.accentGold : defaultTheme.accentGold}`} /> <h3 className={`text-2xl font-bold mb-3 ${isDarkMode ? theme.textPrimary : defaultTheme.textPrimary}`}>ルール解説ページは現在整備中です</h3> <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary}`}>より分かりやすい解説を提供できるよう準備を進めております。今しばらくお待ちください。</p> <p className={`${isDarkMode ? theme.textSecondary : defaultTheme.textSecondary} mt-2`}>お急ぎの場合は、<a href="https://www.gundam-gcg.com/jp/welcome/playguide.php" target="_blank" rel="noopener noreferrer" className={`underline ${isDarkMode ? theme.textAccent : defaultTheme.textAccent} hover:text-opacity-80`}>公式サイトのプレイガイド</a>をご確認ください。</p> </div> </div> );
-// OfficialInfoPage と PlayerVideosPage は削除
 
 // --- Main App Component ---
 const App = () => {
@@ -710,7 +743,6 @@ const App = () => {
       case 'story': return <OriginalStoryPage seriesTitle={selectedSeriesTitle} setCurrentPage={setCurrentPage} isDarkMode={isDarkMode} gsap={gsapInstance} theme={currentTheme} allSeriesData={allSeriesData} />;
       case 'glossary': return <GlossaryPage setCurrentPage={setCurrentPage} isDarkMode={isDarkMode} gsap={gsapInstance} theme={currentTheme} />;
       case 'rules': return <RuleExplanationPage setCurrentPage={setCurrentPage} isDarkMode={isDarkMode} gsap={gsapInstance} theme={currentTheme} />;
-      // OfficialInfoPage と PlayerVideosPage の case を削除
       default:
         console.warn(`Unknown page key: ${currentPage}. Displaying fallback page.`);
         return <div className="text-center p-8">ページが見つかりません。ホームに戻ってください。</div>;
